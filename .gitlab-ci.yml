@@ -12,7 +12,7 @@ build_image:
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   before_script:
-    - echo $REGISTRY_PASS | docker login -u $REGISRTY_USER -p $REGISTRY_PASS
+    - docker login -u $REGISRTY_USER --password-stdin $REGISTRY_PASS
   script:
     - docker build -t $IMAGE_NAME:$IMAGE_TAG build/
     - docker push $IMAGE_NAME:$IMAGE_TAG
