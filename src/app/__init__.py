@@ -1,6 +1,4 @@
 from flask import Flask
-from jinja2 import escape
-
 
 def create_app():
     app = Flask(__name__)
