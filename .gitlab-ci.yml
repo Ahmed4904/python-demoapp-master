@@ -3,8 +3,8 @@ variables:
   IMAGE_TAG: v1.0
 
 stages:
-  -test
-  -build
+  - test
+  - build
 
 tests_job:
   stage: test
