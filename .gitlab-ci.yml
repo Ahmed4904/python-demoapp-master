@@ -1,7 +1,13 @@
 variables:
   IMAGE_NAME: diopahmed/demo-app
   IMAGE_TAG: v1.0
+
+stages:
+  -test
+  -build
+
 tests_job:
+  stage: test
   image: python:3.9-slim-buster
   before_script:
     - apt-get update && apt-get install -y make git
@@ -9,6 +15,7 @@ tests_job:
     - make test
 
 build_image:
+  stage: build
   image: docker:latest
   services:
     - docker:dind
